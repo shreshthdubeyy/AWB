@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            display: flex; 
+            width: 500px; 
+            height: 250px; 
+            margin: 0; 
+            color: #333; 
+        }
+        .half { 
+            flex: 1; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+        }
+        .generate-bg { background-color: #f0f7ff; border-right: 1px solid #ddd; }
+        .check-bg { background-color: #fffaf0; }
+        h3 { margin-top: 0; font-size: 16px; }
+        input { 
+            padding: 8px; 
+            font-size: 14px; 
+            width: 90%; 
+            margin-bottom: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            text-align: center; 
+        }
+        button { 
+            padding: 10px 15px; 
+            font-size: 13px; 
+            cursor: pointer; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+        }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 15px; font-size: 18px; font-weight: bold; min-height: 24px; }
+        .valid { color: #28a745; }
+        .invalid { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="half generate-bg">
+        <h3>Generate AWB</h3>
+        <button id="genBtn">Generate Random</button>
+        <div class="result" id="genResult"></div>
+		<button id="copyBtn" style="display: none; margin-top: 10px; background-color: #6c757d;">Copy</button>
+    </div>
+
+    <div class="half check-bg">
+        <h3>Verify AWB</h3>
+        <input type="text" id="awbInput" placeholder="8-digit AWB" maxlength="8">
+        <button id="checkBtn">Check</button>
+        <div class="result" id="checkResult"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
