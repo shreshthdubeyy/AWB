@@ -41,6 +41,7 @@
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
+      animation: gridDrift 8s linear infinite;
     }
 
     /* ── GLOW ORBS ── */
@@ -51,8 +52,8 @@
       pointer-events: none;
       z-index: 0;
     }
-    .orb1 { width: 500px; height: 500px; background: rgba(0,212,255,0.08); top: -150px; left: -150px; }
-    .orb2 { width: 400px; height: 400px; background: rgba(255,107,53,0.07); bottom: -100px; right: -100px; }
+    .orb1 { width: 500px; height: 500px; background: rgba(0,212,255,0.08); top: -150px; left: -150px; animation: orbFloat1 14s ease-in-out infinite; }
+    .orb2 { width: 400px; height: 400px; background: rgba(255,107,53,0.07); bottom: -100px; right: -100px; animation: orbFloat2 18s ease-in-out infinite; }
 
     /* ── LAYOUT ── */
     .container {
@@ -99,7 +100,7 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 100px 0 80px;
+      padding: 56px 0 48px;
       text-align: center;
     }
     .hero-label {
@@ -148,6 +149,32 @@
       line-height: 1.7;
       animation: fadeUp 0.6s 0.2s ease both;
     }
+
+
+    @keyframes orbFloat1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(60px, 40px) scale(1.08); }
+      66% { transform: translate(-30px, 70px) scale(0.95); }
+    }
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      40% { transform: translate(-70px, -50px) scale(1.1); }
+      70% { transform: translate(40px, -30px) scale(0.92); }
+    }
+    @keyframes gridDrift {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 60px 60px, 60px 60px; }
+    }
+    /* Nav download CTA */
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: var(--bg);
+      font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.5px; padding: 8px 16px; border-radius: 8px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .nav-cta:hover { background: #33dcff; transform: translateY(-1px); }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
